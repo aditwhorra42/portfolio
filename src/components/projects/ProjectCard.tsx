@@ -1,10 +1,11 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
 import {
   Github, ExternalLink, FileText, BookOpen,
   Brain, Shield, Eye, Network, Target, Leaf,
-  Code2, MessageSquare, FlaskConical,
+  Code2, MessageSquare, ChevronDown, ChevronUp,
 } from 'lucide-react'
 import { Project, ProjectLink } from '@/types/project'
 import { TagPill } from '@/components/blog/TagPill'
@@ -85,11 +86,14 @@ export function ProjectCard({
   project: Project
   variant?: 'full' | 'preview'
 }) {
+  const [expanded, setExpanded] = useState(false)
+
   return (
     <motion.article
-      whileHover={{ scale: 1.02, y: -2 }}
+      layout
+      whileHover={expanded ? {} : { scale: 1.02, y: -2 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
-      className="group flex flex-col h-full rounded-2xl overflow-hidden border border-brand-bg-muted dark:border-brand-bg-muted-dark bg-brand-bg-card dark:bg-brand-bg-card-dark shadow-sm hover:shadow-lg transition-all duration-300"
+      className="group flex flex-col rounded-2xl overflow-hidden border border-brand-bg-muted dark:border-brand-bg-muted-dark bg-brand-bg-card dark:bg-brand-bg-card-dark shadow-sm hover:shadow-lg transition-shadow duration-300"
     >
       {/* Image / Placeholder */}
       <div className="relative h-52 overflow-hidden shrink-0">
@@ -113,17 +117,31 @@ export function ProjectCard({
       </div>
 
       {/* Body */}
-      <div className="flex flex-col gap-3 p-5 flex-1">
+      <div className="flex flex-col gap-3 p-5">
         <h3 className="font-serif font-bold text-lg text-brand-text dark:text-brand-text-dark leading-snug">
           {project.name}
         </h3>
-        <p className={`text-sm text-brand-text-sec dark:text-brand-text-sec-dark leading-relaxed flex-1 ${variant === 'preview' ? 'line-clamp-4' : ''}`}>
-          {project.description}
-        </p>
+
+        {/* Description with clamp + expand */}
+        <div>
+          <p className={`text-sm text-brand-text-sec dark:text-brand-text-sec-dark leading-relaxed ${!expanded ? 'line-clamp-3' : ''}`}>
+            {project.description}
+          </p>
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="mt-1.5 inline-flex items-center gap-1 text-xs font-medium text-brand-accent dark:text-brand-accent-dark hover:text-brand-accent-hover dark:hover:text-brand-accent-hover-dark transition-colors duration-150"
+          >
+            {expanded ? (
+              <><ChevronUp size={13} /> Show less</>
+            ) : (
+              <><ChevronDown size={13} /> Read more</>
+            )}
+          </button>
+        </div>
 
         {/* Links */}
         {project.links.length > 0 && (
-          <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-brand-bg-muted dark:border-brand-bg-muted-dark">
+          <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-brand-bg-muted dark:border-brand-bg-muted-dark">
             {project.links.map((link) => (
               <LinkButton key={link.label} link={link} />
             ))}
