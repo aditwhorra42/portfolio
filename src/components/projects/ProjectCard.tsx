@@ -90,7 +90,6 @@ export function ProjectCard({
 
   return (
     <motion.article
-      layout
       whileHover={expanded ? {} : { scale: 1.02, y: -2 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
       className="group flex flex-col rounded-2xl overflow-hidden border border-brand-bg-muted dark:border-brand-bg-muted-dark bg-brand-bg-card dark:bg-brand-bg-card-dark shadow-sm hover:shadow-lg transition-shadow duration-300"
@@ -122,11 +121,17 @@ export function ProjectCard({
           {project.name}
         </h3>
 
-        {/* Description with clamp + expand */}
+        {/* Description with smooth height expand */}
         <div>
-          <p className={`text-sm text-brand-text-sec dark:text-brand-text-sec-dark leading-relaxed ${!expanded ? 'line-clamp-3' : ''}`}>
-            {project.description}
-          </p>
+          <motion.div
+            animate={{ maxHeight: expanded ? 600 : 72 }}
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            style={{ overflow: 'hidden' }}
+          >
+            <p className="text-sm text-brand-text-sec dark:text-brand-text-sec-dark leading-relaxed">
+              {project.description}
+            </p>
+          </motion.div>
           <button
             onClick={() => setExpanded(!expanded)}
             className="mt-1.5 inline-flex items-center gap-1 text-xs font-medium text-brand-accent dark:text-brand-accent-dark hover:text-brand-accent-hover dark:hover:text-brand-accent-hover-dark transition-colors duration-150"
