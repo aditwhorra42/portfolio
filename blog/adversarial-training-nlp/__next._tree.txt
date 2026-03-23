@@ -8,4 +8,4 @@
 :HL["/images/blog/adv-training/pseudocode.jpg","image"]
 :HL["/images/blog/adv-training/adversary.jpg","image"]
 :HL["/images/blog/adv-training/results.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"blog","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"adversarial-training-nlp","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"4X3rGIvwC4S-6q01Ji3QG"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"blog","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"adversarial-training-nlp","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"dmsngmk_v34Io-UIGqBgW"}
