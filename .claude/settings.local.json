@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r \"bg-brand-text-muted\\\\|bg-brand-accent-light-dark\\\\|text-brand-text-sec-dark\\\\|text-brand-text-muted-dark\\\\|bg-brand-bg-card-dark\\\\|bg-brand-bg-muted-dark\\\\|bg-brand-bg-dark\\\\|text-brand-text-dark\\\\|text-brand-accent-dark\\\\|text-brand-accent-hover-dark\" /Users/aditwhorra/Desktop/Projects/portfolio/src --include=*.tsx --include=*.ts -l)",
+      "Bash(npm install:*)",
+      "Bash(/usr/local/bin/npm install:*)",
+      "Bash(/opt/homebrew/bin/npm install:*)",
+      "Read(//usr/local/bin/**)",
+      "Read(//Users/aditwhorra/.nvm/versions/**)",
+      "Read(//Users/aditwhorra/**)",
+      "Bash(echo $PATH)",
+      "Bash(/bin/bash -l -c \"which npm 2>&1; which node 2>&1; npm --version 2>&1\")",
+      "Bash(/opt/homebrew/bin/brew --version)",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
+      "Bash(npm --version)",
+      "Bash(pkill -f \"next dev\")",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}

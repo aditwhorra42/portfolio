@@ -1,0 +1,31 @@
+---
+title: "An Intuitive Introduction to Solving Scalable Oversight using Iterated Amplification"
+date: "2024-02-27"
+excerpt: "How do you supervise an AI that's smarter than you? Iterated Amplification offers a surprisingly elegant answer — break the problem down, align the pieces, and build up from there."
+heroImage: "/images/blog/iterated-amplification/hero_image.jpg"
+tags: ["AI Safety", "AI Alignment", "Scalable Oversight", "Machine Learning"]
+published: true
+---
+
+Imagine you have a genius child prodigy in your neighborhood, someone who is exceptionally gifted in physics — let's call them Alex. Alex is so brilliant that they could revolutionize the world with their inventions, potentially solving energy crises or even discovering new forms of travel. However, there's a catch: Alex is young and, like many geniuses, somewhat naive about the broader implications of their work. Without guidance, Alex might inadvertently create something dangerous, like a new energy source that's incredibly efficient but could also be used as a powerful weapon.
+
+In this analogy, Alex represents an advanced AI system. Just like Alex, AI can perform tasks or solve problems with efficiency far beyond what we can imagine. However, without proper guidance, it might pursue goals that are harmful or misaligned with human values.
+
+The other physicists in the neighborhood (representing humanity) would like to guide and monitor Alex's research and development process to ensure it's beneficial and doesn't lead to negative outcomes. This process of aligning and supervising AI systems that outperform humans at the task at hand is known as **scalable oversight**.
+
+The physicists could try the following things to guide Alex —
+
+1. Alex could start inventing things and the other physicists could come together and give some feedback to Alex about their invention. However, like all inventions, it is hard to tell if they will be beneficial and safe in the long run so the physicists can't "label" the invention as good or bad (providing a training signal for complex problems behaviors exhibited by advanced AI systems is supervised learning is not possible).
+2. The physicists could start inventing things by themselves and try to "demonstrate" the desired behavior to Alex. However, since the physicists are not as smart as Alex, the kind of inventions they want Alex to come up with are too hard for them to demonstrate in the first place. How do the physicists then guide Alex when they can't match their intellect? (providing a training signal to advanced AI systems via reward mechanisms or imitation is not possible)
+
+So what can the physicists do? They soon realize something. Even though they cannot supervise Alex in his task of inventing something beyond their capabilities, they can help Alex break down the process of invention into smaller subtasks for which they can guide Alex. By aligning Alex's goals for these smaller subtasks, they arguably ensure that Alex's invention will also be aligned towards the greater good. This describes the process of **iterated amplification** that allows us to supervise advanced AI systems in learning complex behaviors and goals by demonstrating small fundamental subtasks and then iteratively composing more complex tasks with these subtasks while making sure their behavior remains aligned with our objectives.
+
+The following process breaks down the physicists' approach —
+
+**Starting Small:** Initially, they ask Alex to work on very small, fundamental problems in science, something like "Explain why objects fall to the ground" or "What happens when you mix these two chemicals together?". Since they are all established physicists, they are capable enough to provide feedback to Alex about what he learns or demonstrate their approach to these problems so that Alex can learn from their demonstrations. Additionally, the physicists also introduce Alex to basic ethical principles in science and innovation, focusing on the importance of safety, transparency, and the well-being of society. These guidelines serve as the moral compass for all of Alex's projects. Moreover, since the physicists provide close supervision for these fundamental tasks, they can provide positive reinforcement when Alex completes a task with the desired ethical outcomes, encouraging Alex to internalize these values as core to the problem-solving process.
+
+**Learning by Decomposition:** As Alex successfully navigates these small tasks, the physicists introduce slightly larger challenges, such as "Design a simple machine that could help reduce household energy consumption." The physicists guide Alex in decomposing this challenge and they make sure that the challenge they propose can be broken down into the smaller subtasks that Alex has already learned previously. Now, since Alex already knows how to solve the smaller subtasks, Alex can learn the more complex challenges without any help from the physicists apart from task decomposition. The physicists still oversee Alex's behavior and can correct misalignments as and when they occur.
+
+**Amplification:** With each success, the tasks that the physicists propose become more complex. At each step, Alex 'amplifies' the knowledge and skills acquired from the previously learned subtasks to iteratively learn more complex tasks without direct feedback from the physicists. Eventually, Alex will be able to learn how to invent things beyond the capabilities of the physicists, and the inventions remain aligned with the objectives of the neighboring physicists.
+
+Thus, the physicists have been able to successfully guide Alex into learning tasks beyond their capabilities and make sure Alex's behavior and intentions remain aligned with the greater good.
