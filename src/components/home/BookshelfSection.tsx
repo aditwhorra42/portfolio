@@ -74,12 +74,32 @@ function Spine({
   const spineHeight = Math.max(140, Math.min(book.title.length * 9 + 60, 240))
   const spineWidth = book.title.length > 30 ? 46 : book.title.length > 18 ? 42 : 38
 
-  const handleMouseEnter = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    onHover(book, rect.left + rect.width / 2, rect.top - 4)
+  const showTooltip = useCallback((el: HTMLElement) => {
+    const rect = el.getBoundingClientRect()
+    const tooltipHalfWidth = 124 // w-60 = 240px / 2 + 4px padding
+    const padding = 8
+    const rawX = rect.left + rect.width / 2
+    const clampedX = Math.min(
+      Math.max(rawX, tooltipHalfWidth + padding),
+      window.innerWidth - tooltipHalfWidth - padding
+    )
+    onHover(book, clampedX, rect.top - 4)
   }, [book, onHover])
 
+  const handleMouseEnter = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    showTooltip(e.currentTarget)
+  }, [showTooltip])
+
   const handleMouseLeave = useCallback(() => onHover(null), [onHover])
+
+  const handleTouchStart = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault()
+    showTooltip(e.currentTarget)
+  }, [showTooltip])
+
+  const handleTouchEnd = useCallback(() => {
+    setTimeout(() => onHover(null), 1800)
+  }, [onHover])
 
   return (
     <motion.div
@@ -89,6 +109,8 @@ function Spine({
       whileHover={{ y: -12, transition: { duration: 0.18, ease: 'easeOut' } }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       className="relative flex-shrink-0 self-end cursor-default select-none"
       style={{
         width: `${spineWidth}px`,

@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     url: 'https://aditwhorra42.github.io/portfolio',
     images: [
       {
-        url: '/og-image.jpg',
+        url: 'https://aditwhorra42.github.io/portfolio/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Adit Whorra — ML Researcher & AI Scientist',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: 'Adit Whorra — ML Researcher & AI Scientist',
     description:
       'Building AI systems that create real-world change — from Indic speech models to climate equity frameworks.',
-    images: ['/og-image.jpg'],
+    images: ['https://aditwhorra42.github.io/portfolio/og-image.jpg'],
   },
 }
 
