@@ -26,7 +26,7 @@ function BookTooltip({ book, x, y }: { book: Book; x: number; y: number }) {
       exit={{ opacity: 0, y: 6, scale: 0.96 }}
       transition={{ duration: 0.14, ease: 'easeOut' }}
       className="fixed z-[9999] w-60 pointer-events-none"
-      style={{ left: x, top: y, transform: 'translate(-50%, calc(-100% - 12px))' }}
+      style={{ left: x, top: y, transform: 'translateY(calc(-100% - 12px))' }}
     >
       <div className="rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 shadow-2xl p-3.5 flex flex-col gap-2.5">
         <div className="flex items-start gap-3">
@@ -76,14 +76,14 @@ function Spine({
 
   const showTooltip = useCallback((el: HTMLElement) => {
     const rect = el.getBoundingClientRect()
-    const tooltipHalfWidth = 124 // w-60 = 240px / 2 + 4px padding
+    const tooltipWidth = 240 // w-60
     const padding = 8
-    const rawX = rect.left + rect.width / 2
-    const clampedX = Math.min(
-      Math.max(rawX, tooltipHalfWidth + padding),
-      window.innerWidth - tooltipHalfWidth - padding
+    const centeredLeft = rect.left + rect.width / 2 - tooltipWidth / 2
+    const clampedLeft = Math.min(
+      Math.max(centeredLeft, padding),
+      window.innerWidth - tooltipWidth - padding
     )
-    onHover(book, clampedX, rect.top - 4)
+    onHover(book, clampedLeft, rect.top - 4)
   }, [book, onHover])
 
   const handleMouseEnter = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
