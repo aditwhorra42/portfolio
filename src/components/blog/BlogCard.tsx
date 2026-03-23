@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Clock, Calendar, BookOpen } from 'lucide-react'
 import { BlogPost } from '@/types/blog'
 import { TagPill } from './TagPill'
+import { imgSrc } from '@/lib/path'
 
 interface BlogCardProps {
   post: BlogPost
@@ -56,7 +57,7 @@ export function BlogCard({ post, variant = 'full' }: BlogCardProps) {
             {post.heroImage ? (
               <div
                 className="w-full h-full bg-contain bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${post.heroImage})` }}
+                style={{ backgroundImage: `url(${imgSrc(post.heroImage!)})` }}
               />
             ) : (
               <ImagePlaceholder title={post.title} />
@@ -100,7 +101,7 @@ export function BlogCard({ post, variant = 'full' }: BlogCardProps) {
           {post.heroImage ? (
             <div
               className="w-full h-full bg-contain bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-105"
-              style={{ backgroundImage: `url(${post.heroImage})` }}
+              style={{ backgroundImage: `url(${imgSrc(post.heroImage!)})` }}
             />
           ) : (
             <ImagePlaceholder title={post.title} />

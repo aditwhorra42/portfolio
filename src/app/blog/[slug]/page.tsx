@@ -3,6 +3,7 @@ import { compileMDX } from 'next-mdx-remote/rsc'
 import readingTime from 'reading-time'
 import { getAllPosts, getPostBySlug } from '@/lib/mdx'
 import { BlogHero } from '@/components/blog/BlogHero'
+import { imgSrc } from '@/lib/path'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -49,6 +50,12 @@ export default async function BlogPostPage({ params }: PageProps) {
     source: content,
     options: {
       parseFrontmatter: false,
+    },
+    components: {
+      img: ({ src, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={imgSrc(src ?? '')} alt={alt ?? ''} {...props} />
+      ),
     },
   })
 

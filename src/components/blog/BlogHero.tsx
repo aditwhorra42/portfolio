@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ChevronDown, Calendar, Clock } from 'lucide-react'
 import { TagPill } from './TagPill'
+import { imgSrc } from '@/lib/path'
 
 interface BlogHeroProps {
   title: string
@@ -28,7 +29,7 @@ export function BlogHero({ title, date, readingTime, tags, heroImage }: BlogHero
         background: 'linear-gradient(135deg, #2C1A0E, #5C4033)',
         ...(heroImage
           ? {
-              backgroundImage: `url(${heroImage})`,
+              backgroundImage: `url(${imgSrc(heroImage)})`,
               backgroundSize: 'contain',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',

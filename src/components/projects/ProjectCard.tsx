@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import { Project, ProjectLink } from '@/types/project'
 import { TagPill } from '@/components/blog/TagPill'
+import { imgSrc } from '@/lib/path'
 
 // ── Icon per project ──────────────────────────────────────────────────────────
 function placeholderIcon(project: Project) {
@@ -92,7 +93,7 @@ export function ProjectCard({
       <div className="relative h-52 overflow-hidden shrink-0">
         {project.image ? (
           <img
-            src={project.image}
+            src={imgSrc(project.image!)}
             alt={project.name}
             className="w-full h-full object-cover object-center"
           />
