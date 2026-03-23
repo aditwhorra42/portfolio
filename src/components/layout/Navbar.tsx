@@ -71,6 +71,7 @@ export function Navbar() {
           ? 'backdrop-blur-md bg-brand-bg/90 dark:bg-brand-bg-dark/90 border-b border-brand-bg-muted dark:border-brand-bg-muted-dark shadow-sm'
           : 'bg-transparent'
         }`}
+      style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-center h-18">
