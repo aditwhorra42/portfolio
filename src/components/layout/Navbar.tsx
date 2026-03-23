@@ -74,10 +74,10 @@ export function Navbar() {
       style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-center h-18">
+        <div className="relative flex items-center justify-center h-16">
 
           {/* Left: social icons — absolutely pinned left */}
-          <div className="absolute left-0 hidden md:flex items-center gap-1">
+          <div className="absolute inset-y-0 left-0 hidden md:flex items-center gap-1">
             {socialLinks.map(({ label, href, icon }) => (
               <a
                 key={label}
@@ -118,12 +118,12 @@ export function Navbar() {
           </div>
 
           {/* Right: theme toggle — absolutely pinned right */}
-          <div className="absolute right-0 hidden md:flex items-center">
+          <div className="absolute inset-y-0 right-0 hidden md:flex items-center">
             <ThemeToggle />
           </div>
 
           {/* Mobile: theme toggle + hamburger — absolutely pinned right */}
-          <div className="absolute right-0 flex md:hidden items-center gap-2">
+          <div className="absolute inset-y-0 right-0 flex md:hidden items-center gap-2">
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
