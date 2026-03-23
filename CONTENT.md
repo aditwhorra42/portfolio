@@ -26,7 +26,7 @@
 > Adit Whorra
 
 **Tagline:**
-> Building AI systems that create real-world change — from Indic speech models to climate equity frameworks.
+> Building AI systems that create real-world impact.
 
 **CTA buttons:** Read Blog · View Projects · Download CV
 

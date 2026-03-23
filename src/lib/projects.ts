@@ -93,7 +93,9 @@ export const PROJECTS: Project[] = [
     description:
       'The site you are on right now. I vibe coded the whole thing using Claude Code. The gap between what you can imagine and what you can build is shrinking fast. Built with Next.js and Tailwind CSS, deployed on GitHub Pages.',
     tags: ['Next.js', 'Tailwind CSS', 'TypeScript'],
-    links: [],
+    links: [
+      { label: 'Code', url: 'https://github.com/aditwhorra42/portfolio' }
+    ],
     featured: false,
     category: 'personal',
     image: '/og-image.jpg'
