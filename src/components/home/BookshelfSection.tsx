@@ -172,7 +172,7 @@ export function BookshelfSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="On My Shelf"
-          subtitle="Books I've read, am reading, and want to read. Hover a spine to see more."
+          subtitle="Books I've read, am reading, and want to read."
         />
 
         <div className="mt-10">
