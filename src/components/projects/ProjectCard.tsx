@@ -62,9 +62,11 @@ function LinkButton({ link }: { link: ProjectLink }) {
       </span>
     )
   }
+  // Prepend basePath for internal file links (e.g. /files/SDCGAN.pdf)
+  const href = link.url.startsWith('/') ? imgSrc(link.url) : link.url
   return (
     <a
-      href={link.url}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-1.5 text-xs font-medium text-brand-accent dark:text-brand-accent-dark hover:text-brand-accent-hover dark:hover:text-brand-accent-hover-dark px-2.5 py-1 rounded-full border border-brand-accent/30 dark:border-brand-accent-dark/30 hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark transition-colors duration-150"

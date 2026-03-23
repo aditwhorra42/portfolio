@@ -24,11 +24,6 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  icons: {
-    icon: '/favicon-32x32.png',
-    shortcut: '/favicon-32x32.png',
-    apple: '/favicon-32x32.png',
-  },
   title: 'Adit Whorra — ML Researcher & AI Scientist',
   description:
     'Adit Whorra is an AI researcher and engineer building machine learning systems for social impact — from Indic speech models to climate equity frameworks. MSc from TU Delft, currently at Wadhwani AI.',

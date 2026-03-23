@@ -98,7 +98,7 @@ function Spine({
   }, [showTooltip])
 
   const handleTouchEnd = useCallback(() => {
-    setTimeout(() => onHover(null), 1800)
+    setTimeout(() => onHover(null), 3000)
   }, [onHover])
 
   return (
