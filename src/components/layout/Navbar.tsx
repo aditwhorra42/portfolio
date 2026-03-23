@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'Home', href: '/', external: false },
   { label: 'Blog', href: '/blog', external: false },
   { label: 'Projects', href: '/projects', external: false },
-  { label: 'CV', href: '/files/CV.pdf', external: true },
+  { label: 'CV', href: `${process.env.NODE_ENV === 'production' ? '/portfolio' : ''}/files/CV.pdf`, external: true },
   { label: 'Contact', href: '/contact', external: false },
 ]
 
