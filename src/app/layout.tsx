@@ -1,9 +1,11 @@
-import type { Metadata, Viewport } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
-import { ThemeProvider } from 'next-themes'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
 import './globals.css'
+
+import { Inter, Playfair_Display } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+
+import { Footer } from '@/components/layout/Footer'
+import { Navbar } from '@/components/layout/Navbar'
+import { ThemeProvider } from 'next-themes'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -39,9 +41,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Adit Whorra' }],
   openGraph: {
-    title: 'Adit Whorra — ML Researcher & AI Scientist',
+    title: 'Adit Whorra — AI Researcher',
     description:
-      'Building AI systems that create real-world change — from Indic speech models to climate equity frameworks.',
+      'Building AI systems that create real-world impact.',
     type: 'website',
     url: 'https://aditwhorra42.github.io/portfolio',
     images: [
@@ -49,15 +51,15 @@ export const metadata: Metadata = {
         url: 'https://aditwhorra42.github.io/portfolio/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Adit Whorra — ML Researcher & AI Scientist',
+        alt: 'Adit Whorra — ML Researcher',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Adit Whorra — ML Researcher & AI Scientist',
+    title: 'Adit Whorra — AI Researcher',
     description:
-      'Building AI systems that create real-world change — from Indic speech models to climate equity frameworks.',
+      'Building AI systems that create real-world change.',
     images: ['https://aditwhorra42.github.io/portfolio/og-image.jpg'],
   },
 }
