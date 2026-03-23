@@ -54,7 +54,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     components: {
       img: ({ src, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={imgSrc(src ?? '')} alt={alt ?? ''} {...props} />
+        <img src={imgSrc(typeof src === 'string' ? src : '')} alt={alt ?? ''} {...props} />
       ),
     },
   })
