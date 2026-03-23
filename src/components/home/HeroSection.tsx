@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react'
 
 import { ChevronDown } from 'lucide-react'
-import Image from 'next/image'
 import { TagPill } from '@/components/blog/TagPill'
+import { imgSrc } from '@/lib/path'
 import { motion } from 'framer-motion'
 
 const containerVariants = {
@@ -96,13 +96,11 @@ export function HeroSection() {
                 className="relative w-full h-full overflow-hidden rounded-[50%] bg-brand-bg-muted dark:bg-brand-bg-muted-dark"
                 style={{ boxShadow: '0 12px 40px rgba(0,0,0,0.10)' }}
               >
-                <Image
-                  src="/images/avatar.jpg"
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={imgSrc('/images/avatar.jpg')}
                   alt="Adit Whorra"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                  sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 288px, 320px"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
             </div>
