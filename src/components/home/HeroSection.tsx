@@ -145,7 +145,7 @@ export function HeroSection() {
                 Beyond research, I build things to solve problems I see around me and write about how I approach them from scratch: the thinking, the iteration, and what actually works. The gap between what is possible and what you can build is shrinking fast, and I think that changes what any of us can do about the problems we care about.
               </motion.p>
               <motion.p variants={itemVariants}>
-                Outside of AI, I think a lot about geopolitics, personal finance, and mental and physical well-being.
+                Outside of AI, I care about personal finance, building good habits, and mental and physical well-being.
               </motion.p>
             </motion.div>
 
