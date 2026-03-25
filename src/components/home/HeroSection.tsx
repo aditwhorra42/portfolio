@@ -142,7 +142,7 @@ export function HeroSection() {
                 , a BSc from Ashoka University, and have published at IJCAI.
               </motion.p>
               <motion.p variants={itemVariants}>
-                Beyond research, I&apos;m on a mission to help people use AI effectively in their own lives. I build frameworks and workflows that anyone can use to become more productive, more creative, and better at what they care about.
+                Beyond research, I build things to solve problems I see around me and write about how I approach them from scratch: the thinking, the iteration, and what actually works. The gap between what is possible and what you can build is shrinking fast, and I think that changes what any of us can do about the problems we care about.
               </motion.p>
               <motion.p variants={itemVariants}>
                 Outside of AI, I think a lot about geopolitics, personal finance, and mental and physical well-being.
