@@ -24,10 +24,11 @@ const itemVariants = {
 }
 
 const researchInterests = [
-  'AI For Social Impact',
+  'AI for Social Impact',
   'ASR & Speech',
-  'Indic Languages',
   'AI Safety',
+  'Building with AI',
+  'AI for Productivity',
 ]
 
 const TYPING_TEXT = "Hi, I'm Adit!"
@@ -157,7 +158,7 @@ export function HeroSection() {
               className="flex flex-col gap-2 w-full"
             >
               <p className="text-xs font-semibold uppercase tracking-widest text-brand-text-muted dark:text-brand-text-muted-dark">
-                Research Interests
+                Interests
               </p>
               <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                 {researchInterests.map((interest) => (
