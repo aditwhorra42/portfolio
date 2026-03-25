@@ -140,7 +140,7 @@ export function HeroSection() {
                 <a href="https://www.wadhwaniai.org/impact/education-solutions/oral-reading-fluency/" target="_blank" rel="noopener noreferrer" className="text-brand-accent dark:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark rounded px-0.5 transition-colors duration-150">tools</a>
                 {' '}that measure reading fluency for children at scale across India, helping millions become better readers. I hold an MSc from TU Delft, supervised by{' '}
                 <a href="https://sites.google.com/site/elvinisufihp/" target="_blank" rel="noopener noreferrer" className="text-brand-accent dark:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark rounded px-0.5 transition-colors duration-150">Dr. Elvin Isufi</a>
-                , a BSc from Ashoka University, and have published at IJCAI.
+                , and a BSc from Ashoka University.
               </motion.p>
               <motion.p variants={itemVariants}>
                 Beyond research, I build things to solve problems I see around me and write about how I approach them from scratch: the thinking, the iteration, and what actually works. The gap between what is possible and what you can build is shrinking fast, and I think that changes what any of us can do about the problems we care about.
