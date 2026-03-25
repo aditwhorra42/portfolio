@@ -14,6 +14,7 @@ const BASE_PATH = process.env.NODE_ENV === 'production' ? '/portfolio' : ''
 function rehypePrefixImgSrc() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (tree: any) => {
+    // 1. Regular rehype element nodes (from markdown ![]() syntax)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     visit(tree, 'element', (node: any) => {
       if (
@@ -22,6 +23,20 @@ function rehypePrefixImgSrc() {
         node.properties.src.startsWith('/')
       ) {
         node.properties.src = BASE_PATH + node.properties.src
+      }
+    })
+
+    // 2. MDX JSX element nodes (from inline <img /> JSX in MDX files)
+    // These are represented as mdxJsxFlowElement / mdxJsxTextElement nodes,
+    // NOT as regular rehype element nodes, so they need separate handling.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    visit(tree, ['mdxJsxFlowElement', 'mdxJsxTextElement'], (node: any) => {
+      if (node.name === 'img' && Array.isArray(node.attributes)) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const srcAttr = node.attributes.find((a: any) => a.name === 'src')
+        if (srcAttr && typeof srcAttr.value === 'string' && srcAttr.value.startsWith('/')) {
+          srcAttr.value = BASE_PATH + srcAttr.value
+        }
       }
     })
   }
