@@ -138,9 +138,9 @@ export function HeroSection() {
                 <a href="https://www.wadhwaniai.org/" target="_blank" rel="noopener noreferrer" className="text-brand-accent dark:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark rounded px-0.5 transition-colors duration-150">Wadhwani AI</a>
                 , India&apos;s largest AI for Social Good research organisation. I work on ASR models for Indic languages and contribute to{' '}
                 <a href="https://www.wadhwaniai.org/impact/education-solutions/oral-reading-fluency/" target="_blank" rel="noopener noreferrer" className="text-brand-accent dark:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark rounded px-0.5 transition-colors duration-150">tools</a>
-                {' '}that measure reading fluency for children at scale across India, helping millions become better readers. I hold an MSc from TU Delft, supervised by{' '}
+                {' '}that measure reading fluency for children at scale across India, helping millions become better readers. I hold an MSc in AI from TU Delft (Netherlands), supervised by{' '}
                 <a href="https://sites.google.com/site/elvinisufihp/" target="_blank" rel="noopener noreferrer" className="text-brand-accent dark:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark rounded px-0.5 transition-colors duration-150">Dr. Elvin Isufi</a>
-                , and a BSc from Ashoka University.
+                , and a BSc from Ashoka University (India).
               </motion.p>
               <motion.p variants={itemVariants}>
                 Beyond research, I build things to solve problems I see around me and write about how I approach them from scratch: the thinking, the iteration, and what actually works. The gap between what is possible and what you can build is shrinking fast, and I think that changes what any of us can do about the problems we care about.
