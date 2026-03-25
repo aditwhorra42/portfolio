@@ -137,7 +137,7 @@ export function HeroSection() {
                 <a href="https://www.wadhwaniai.org/" target="_blank" rel="noopener noreferrer" className="text-brand-accent dark:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark rounded px-0.5 transition-colors duration-150">Wadhwani AI</a>
                 , India&apos;s largest AI for Social Good research organisation, working on ASR models for Indic languages and contributing to{' '}
                 <a href="https://www.wadhwaniai.org/impact/education-solutions/oral-reading-fluency/" target="_blank" rel="noopener noreferrer" className="text-brand-accent dark:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark rounded px-0.5 transition-colors duration-150">tools</a>
-                {' '}that measure reading fluency for children at scale across India. I hold an MSc from TU Delft, supervised by{' '}
+                {' '}that measure reading fluency for children at scale across India, helping millions of them read a little better every day. I hold an MSc from TU Delft, supervised by{' '}
                 <a href="https://sites.google.com/site/elvinisufihp/" target="_blank" rel="noopener noreferrer" className="text-brand-accent dark:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark rounded px-0.5 transition-colors duration-150">Dr. Elvin Isufi</a>
                 , a BSc from Ashoka University, and have published at IJCAI.
               </motion.p>
