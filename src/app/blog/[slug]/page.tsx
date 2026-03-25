@@ -1,9 +1,31 @@
 import { notFound } from 'next/navigation'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import readingTime from 'reading-time'
+import { visit } from 'unist-util-visit'
 import { getAllPosts, getPostBySlug } from '@/lib/mdx'
 import { BlogHero } from '@/components/blog/BlogHero'
-import { imgSrc } from '@/lib/path'
+
+// Rehype plugin: prepend basePath to all local image src attributes at the AST
+// level — runs before React rendering so it catches both markdown-generated
+// and inline JSX <img> tags equally.
+const BASE_PATH = process.env.NODE_ENV === 'production' ? '/portfolio' : ''
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function rehypePrefixImgSrc() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (tree: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    visit(tree, 'element', (node: any) => {
+      if (
+        node.tagName === 'img' &&
+        typeof node.properties?.src === 'string' &&
+        node.properties.src.startsWith('/')
+      ) {
+        node.properties.src = BASE_PATH + node.properties.src
+      }
+    })
+  }
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -50,12 +72,9 @@ export default async function BlogPostPage({ params }: PageProps) {
     source: content,
     options: {
       parseFrontmatter: false,
-    },
-    components: {
-      img: ({ src, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={imgSrc(typeof src === 'string' ? src : '')} alt={alt ?? ''} {...props} />
-      ),
+      mdxOptions: {
+        rehypePlugins: [rehypePrefixImgSrc],
+      },
     },
   })
 
