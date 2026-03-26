@@ -17,7 +17,7 @@ export default function BlogPage() {
         <div className="mb-14">
           <SectionHeading
             title="Writing"
-            subtitle="Thoughts on AI research, machine learning, and building technology for social impact. These are older posts, but more are on the way."
+            subtitle="Thoughts on AI, research, and building things that matter. These are older posts, but more are on the way."
             align="left"
           />
         </div>
