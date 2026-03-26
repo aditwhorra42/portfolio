@@ -31,7 +31,7 @@ export const ANNOUNCEMENTS: Announcement[] = [
     date: 'December 2025',
     headline: 'Joined Wadhwani AI as Associate Machine Learning Scientist II',
     description:
-      'Building AI for large-scale social impact in India, focusing on ASR and TTS for Indic languages.',
+      'Building AI for large-scale social impact in India, focusing on ASR models for Indic languages.',
     url: null,
   },
   {
