@@ -42,8 +42,8 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
           viewport={{ once: true, margin: '-60px' }}
           className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10"
         >
-          {projects.map((project) => (
-            <motion.div key={project.name} variants={itemVariants} className="h-full">
+          {projects.map((project, i) => (
+            <motion.div key={project.name} variants={itemVariants} className={`h-full${i >= 2 ? ' hidden sm:block' : ''}`}>
               <ProjectCard project={project} variant="preview" />
             </motion.div>
           ))}
