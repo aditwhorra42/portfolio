@@ -1,11 +1,11 @@
-import { getAllPosts } from '@/lib/mdx'
 import { BlogCard } from '@/components/blog/BlogCard'
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import { getAllPosts } from '@/lib/mdx'
 
 export const metadata = {
   title: 'Writing — Adit Whorra',
   description:
-    'Thoughts on AI research, machine learning, and building technology for social impact.',
+    'Thoughts on AI, research, and building things that matter.',
 }
 
 export default function BlogPage() {
@@ -17,7 +17,7 @@ export default function BlogPage() {
         <div className="mb-14">
           <SectionHeading
             title="Writing"
-            subtitle="Thoughts on AI research, machine learning, and building technology for social impact."
+            subtitle="Thoughts on AI research, machine learning, and building technology for social impact. These are older posts, but more are on the way."
             align="left"
           />
         </div>

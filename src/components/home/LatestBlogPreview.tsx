@@ -20,7 +20,7 @@ export function LatestBlogPreview({ posts }: LatestBlogPreviewProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Latest Writing"
-          subtitle="Thoughts on AI, research, and building things that matter."
+          subtitle="Thoughts on AI, research, and building things that matter. These are older posts, but more are on the way."
         />
 
         {posts.length > 0 ? (
