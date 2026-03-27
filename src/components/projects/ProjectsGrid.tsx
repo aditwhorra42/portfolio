@@ -17,31 +17,26 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
 
   return (
     <>
-      {/* Toggle pill */}
-      <div className="inline-flex items-center gap-1 p-1 rounded-full bg-brand-bg-muted dark:bg-brand-bg-muted-dark border border-brand-bg-muted dark:border-brand-bg-muted-dark mb-10">
+      {/* Category tabs */}
+      <div className="flex items-center gap-6 border-b border-brand-bg-muted dark:border-brand-bg-muted-dark mb-10">
         {TABS.map((tab) => (
           <button
             key={tab.value}
             onClick={() => setActive(tab.value)}
-            className="relative px-6 py-2 rounded-full text-sm font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+            className={`relative pb-3 text-sm font-medium transition-colors duration-150 focus:outline-none ${
+              active === tab.value
+                ? 'text-brand-text dark:text-brand-text-dark'
+                : 'text-brand-text-muted dark:text-brand-text-muted-dark hover:text-brand-text-sec dark:hover:text-brand-text-sec-dark'
+            }`}
           >
-            {/* Sliding active indicator */}
+            {tab.label}
             {active === tab.value && (
               <motion.span
                 layoutId="projects-tab-indicator"
-                className="absolute inset-0 rounded-full bg-brand-bg dark:bg-brand-bg-dark shadow-sm"
+                className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-accent dark:bg-brand-accent-dark"
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               />
             )}
-            <span
-              className={`relative z-10 transition-colors duration-150 ${
-                active === tab.value
-                  ? 'text-brand-accent dark:text-brand-accent-dark'
-                  : 'text-brand-text-muted dark:text-brand-text-muted-dark hover:text-brand-text dark:hover:text-brand-text-dark'
-              }`}
-            >
-              {tab.label}
-            </span>
           </button>
         ))}
       </div>

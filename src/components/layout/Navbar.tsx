@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Github, Linkedin, Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 import Link from 'next/link'
 import { ThemeToggle } from './ThemeToggle'
@@ -49,11 +50,21 @@ const socialLinks = [
 ]
 
 const iconBtnCls =
-  'w-9 h-9 flex items-center justify-center rounded-lg text-brand-text-muted dark:text-brand-text-muted-dark hover:text-brand-accent dark:hover:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark transition-all duration-200'
+  'w-8 h-8 flex items-center justify-center rounded-md text-brand-text-muted dark:text-brand-text-muted-dark hover:text-brand-accent dark:hover:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark transition-all duration-200'
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  function navLinkCls(href: string) {
+    const isActive = href === '/' ? pathname === '/' : pathname.startsWith(href)
+    return `px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${
+      isActive
+        ? 'text-brand-text dark:text-brand-text-dark'
+        : 'text-brand-text-muted dark:text-brand-text-muted-dark hover:text-brand-text dark:hover:text-brand-text-dark'
+    }`
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,16 +79,50 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'backdrop-blur-md bg-brand-bg/90 dark:bg-brand-bg-dark/90 border-b border-brand-bg-muted dark:border-brand-bg-muted-dark shadow-sm'
+          ? 'backdrop-blur-md bg-brand-bg/95 dark:bg-brand-bg-dark/95 border-b border-brand-bg-muted dark:border-brand-bg-muted-dark shadow-sm'
           : 'bg-transparent'
         }`}
       style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-center h-16">
+        <div className="flex items-center justify-between h-14">
 
-          {/* Left: social icons — absolutely pinned left */}
-          <div className="absolute inset-y-0 left-0 hidden md:flex items-center gap-1">
+          {/* Left: name */}
+          <Link
+            href="/"
+            className="font-serif text-base font-bold text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition-colors duration-200 tracking-tight"
+          >
+            Adit Whorra
+          </Link>
+
+          {/* Right: nav links + social icons + theme toggle */}
+          <div className="hidden md:flex items-center gap-1">
+            {navLinks.map(({ label, href, external }) =>
+              external ? (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={navLinkCls(href)}
+                >
+                  {label}
+                </a>
+              ) : (
+                <Link
+                  key={label}
+                  href={href}
+                  className={navLinkCls(href)}
+                >
+                  {label}
+                </Link>
+              )
+            )}
+
+            {/* Divider */}
+            <div className="w-px h-4 bg-brand-bg-muted dark:bg-brand-bg-muted-dark mx-2" />
+
+            {/* Social icons */}
             {socialLinks.map(({ label, href, icon }) => (
               <a
                 key={label}
@@ -90,47 +135,19 @@ export function Navbar() {
                 {icon}
               </a>
             ))}
-          </div>
 
-          {/* Center: nav links */}
-          <div className="hidden md:flex items-center gap-2">
-            {navLinks.map(({ label, href, external }) =>
-              external ? (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-2.5 text-base font-medium text-brand-text-sec dark:text-brand-text-sec-dark hover:text-brand-accent dark:hover:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark rounded-lg transition-all duration-200"
-                >
-                  {label}
-                </a>
-              ) : (
-                <Link
-                  key={label}
-                  href={href}
-                  className="px-5 py-2.5 text-base font-medium text-brand-text-sec dark:text-brand-text-sec-dark hover:text-brand-accent dark:hover:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark rounded-lg transition-all duration-200"
-                >
-                  {label}
-                </Link>
-              )
-            )}
-          </div>
-
-          {/* Right: theme toggle — absolutely pinned right */}
-          <div className="absolute inset-y-0 right-0 hidden md:flex items-center">
             <ThemeToggle />
           </div>
 
-          {/* Mobile: theme toggle + hamburger — absolutely pinned right */}
-          <div className="absolute inset-y-0 right-0 flex md:hidden items-center gap-2">
+          {/* Mobile: theme toggle + hamburger */}
+          <div className="flex md:hidden items-center gap-2">
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="w-9 h-9 flex items-center justify-center rounded-lg text-brand-text-muted dark:text-brand-text-muted-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark transition-colors duration-200"
+              className="w-8 h-8 flex items-center justify-center rounded-md text-brand-text-muted dark:text-brand-text-muted-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark transition-colors duration-200"
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
@@ -160,7 +177,7 @@ export function Navbar() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={closeMobileMenu}
-                      className="block px-4 py-3 text-base font-medium text-brand-text-sec dark:text-brand-text-sec-dark hover:text-brand-accent dark:hover:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark rounded-lg transition-all duration-200"
+                      className="block px-4 py-3 text-sm font-medium text-brand-text-muted dark:text-brand-text-muted-dark hover:text-brand-text dark:hover:text-brand-text-dark rounded-lg transition-all duration-200"
                     >
                       {label}
                     </a>
@@ -168,7 +185,7 @@ export function Navbar() {
                     <Link
                       href={href}
                       onClick={closeMobileMenu}
-                      className="block px-4 py-3 text-base font-medium text-brand-text-sec dark:text-brand-text-sec-dark hover:text-brand-accent dark:hover:text-brand-accent-dark hover:bg-brand-accent-light dark:hover:bg-brand-accent-light-dark rounded-lg transition-all duration-200"
+                      className="block px-4 py-3 text-sm font-medium text-brand-text-muted dark:text-brand-text-muted-dark hover:text-brand-text dark:hover:text-brand-text-dark rounded-lg transition-all duration-200"
                     >
                       {label}
                     </Link>

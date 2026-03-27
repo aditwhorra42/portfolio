@@ -20,26 +20,26 @@ html {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF7F2;
+  background: #FFFFFF;
 }
 .dark ::-webkit-scrollbar-track {
-  background: #1A1310;
+  background: #0D0D0D;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C17F59;
+  background: #D4D4D8;
   border-radius: 3px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: #D4956A;
+  background: #3F3F46;
 }
 
 /* Base body styles */
 body {
-  background-color: #FAF7F2;
-  color: #2C1A0E;
+  background-color: #FFFFFF;
+  color: #09090B;
 }
 
 .dark body {
-  background-color: #1A1310;
-  color: #F5EFE6;
+  background-color: #0D0D0D;
+  color: #FAFAFA;
 }

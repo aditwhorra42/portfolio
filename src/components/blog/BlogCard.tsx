@@ -50,7 +50,7 @@ export function BlogCard({ post, variant = 'full' }: BlogCardProps) {
       >
         <Link
           href={`/blog/${post.slug}`}
-          className="flex gap-4 p-4 rounded-xl border border-brand-bg-muted dark:border-brand-bg-muted-dark bg-brand-bg-card dark:bg-brand-bg-card-dark hover:border-brand-accent/30 dark:hover:border-brand-accent-dark/30 hover:shadow-md transition-all duration-200"
+          className="flex gap-4 p-4 rounded-lg border border-brand-bg-muted dark:border-brand-bg-muted-dark bg-brand-bg-card dark:bg-brand-bg-card-dark hover:border-brand-accent/30 dark:hover:border-brand-accent-dark/30 hover:shadow-sm transition-all duration-200"
         >
           {/* Small image */}
           <div className="relative shrink-0 w-24 h-24 rounded-lg overflow-hidden bg-brand-bg-muted dark:bg-brand-bg-muted-dark">
@@ -93,14 +93,14 @@ export function BlogCard({ post, variant = 'full' }: BlogCardProps) {
     <motion.article
       whileHover={{ scale: 1.02, y: -2 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
-      className="group flex flex-col rounded-2xl overflow-hidden border border-brand-bg-muted dark:border-brand-bg-muted-dark bg-brand-bg-card dark:bg-brand-bg-card-dark shadow-sm hover:shadow-lg transition-all duration-300"
+      className="group flex flex-col rounded-xl overflow-hidden border border-brand-bg-muted dark:border-brand-bg-muted-dark bg-brand-bg-card dark:bg-brand-bg-card-dark shadow-sm hover:shadow-md transition-all duration-300"
     >
       <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
         {/* Hero image */}
         <div className="relative h-52 overflow-hidden">
           {post.heroImage ? (
             <div
-              className="w-full h-full bg-contain bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-105"
               style={{ backgroundImage: `url(${imgSrc(post.heroImage!)})` }}
             />
           ) : (

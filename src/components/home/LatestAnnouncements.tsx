@@ -42,9 +42,9 @@ function parseYear(date: string): number {
 
 function AnnouncementCard({ item }: { item: (typeof ANNOUNCEMENTS)[number] }) {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-start gap-3 p-5 rounded-xl bg-brand-bg-card dark:bg-brand-bg-card-dark border border-brand-bg-muted dark:border-brand-bg-muted-dark hover:border-brand-accent/30 dark:hover:border-brand-accent-dark/30 transition-all duration-200 shadow-sm hover:shadow-md">
+    <div className="flex flex-col sm:flex-row sm:items-start gap-3 p-5 rounded-lg bg-brand-bg-card dark:bg-brand-bg-card-dark border border-brand-bg-muted dark:border-brand-bg-muted-dark hover:border-brand-accent/20 dark:hover:border-brand-accent-dark/20 transition-all duration-200">
       {/* Date badge */}
-      <span className="shrink-0 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-brand-accent-light dark:bg-brand-accent-light-dark text-brand-accent dark:text-brand-accent-dark whitespace-nowrap self-start mt-0.5">
+      <span className="shrink-0 inline-flex items-center text-xs font-medium text-brand-accent dark:text-brand-accent-dark whitespace-nowrap self-start mt-1 min-w-[110px]">
         {item.date}
       </span>
 
@@ -115,30 +115,36 @@ export function LatestAnnouncements() {
           subtitle="Recent milestones, publications, and career updates."
         />
 
-        {/* Year filter pills */}
-        <div className="flex flex-wrap items-center gap-2 mb-8">
+        {/* Year filter tabs */}
+        <div className="flex items-center gap-5 border-b border-brand-bg-muted dark:border-brand-bg-muted-dark mb-8">
           {years.map((year) => (
             <button
               key={year}
               onClick={() => handleYearChange(year)}
-              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 border ${
+              className={`pb-3 text-sm font-medium transition-colors duration-150 relative ${
                 selectedYear === year
-                  ? 'bg-brand-accent text-white border-brand-accent shadow-sm'
-                  : 'border-brand-bg-muted dark:border-brand-bg-muted-dark text-brand-text-muted dark:text-brand-text-muted-dark hover:border-brand-accent/40 dark:hover:border-brand-accent-dark/40 hover:text-brand-accent dark:hover:text-brand-accent-dark bg-brand-bg-card dark:bg-brand-bg-card-dark'
+                  ? 'text-brand-text dark:text-brand-text-dark'
+                  : 'text-brand-text-muted dark:text-brand-text-muted-dark hover:text-brand-text-sec dark:hover:text-brand-text-sec-dark'
               }`}
             >
               {year}
+              {selectedYear === year && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-accent dark:bg-brand-accent-dark" />
+              )}
             </button>
           ))}
           <button
             onClick={() => handleYearChange('all')}
-            className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 border ${
+            className={`pb-3 text-sm font-medium transition-colors duration-150 relative ${
               selectedYear === 'all'
-                ? 'bg-brand-accent text-white border-brand-accent shadow-sm'
-                : 'border-brand-bg-muted dark:border-brand-bg-muted-dark text-brand-text-muted dark:text-brand-text-muted-dark hover:border-brand-accent/40 dark:hover:border-brand-accent-dark/40 hover:text-brand-accent dark:hover:text-brand-accent-dark bg-brand-bg-card dark:bg-brand-bg-card-dark'
+                ? 'text-brand-text dark:text-brand-text-dark'
+                : 'text-brand-text-muted dark:text-brand-text-muted-dark hover:text-brand-text-sec dark:hover:text-brand-text-sec-dark'
             }`}
           >
             All
+            {selectedYear === 'all' && (
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-accent dark:bg-brand-accent-dark" />
+            )}
           </button>
         </div>
 
